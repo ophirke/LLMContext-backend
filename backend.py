@@ -7,8 +7,13 @@ from langchain.text_splitter import CharacterTextSplitter
 from sentence_transformers import SentenceTransformer
 
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 
 APP = FastAPI()
+APP.add_middleware(
+    CORSMiddleware,
+    allow_origins=['*'],
+)
 
 
 def list_to_csp(lst):
@@ -38,7 +43,7 @@ DEFAULT_TOPK = 3
 
 def split_context_into_chunks(context_text: str):
     documents = [Document(page_content=context_text)]
-    text_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=100)
+    text_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=100, separator=' ')
     docs = text_splitter.split_documents(documents=documents)
     return [doc.page_content for doc in docs]
 
