@@ -129,23 +129,3 @@ async def post_context(user_id: int, url: str, context: str):
 async def get_context(user_id: int, question: str):
     return get_context_for_user(user_id, question)
 
-def main():
-    pass
-
-    # maybe_create_table()
-
-    # add_context_for_user(1, "https://example.com", "The user likes potatoes")
-    # add_context_for_user(1, "https://example.com", "The user likes french fries")
-    # add_context_for_user(1, "https://example.com", "The user likes mashed potatoes")
-    # add_context_for_user(1, "https://example.com", "The user likes sweet potatoes")
-    # add_context_for_user(1, "https://example.com", "The user plays basketball")
-    # add_context_for_user(1, "https://example.com", "The user is LeBron James")
-    # add_context_for_user(1, "https://example.com", "The user is a computer science student")
-
-    # print(get_context_for_user(1, "What does the user like?"))
-    # print(get_context_for_user(1, "Does the user like fried food?"))
-    # print(get_context_for_user(1, "What is the user's occupation?"))
-
-
-if __name__ == "__main__":
-    main()
